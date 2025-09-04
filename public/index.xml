@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>我的 ROS 学习博客</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on 我的 ROS 学习博客</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Thu, 04 Sep 2025 12:00:00 +0800</lastBuildDate><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>【ROS入门笔记】用“搭乐高”的方式，彻底搞懂ROS是什么</title>
+      <link>http://localhost:1313/posts/what-is-ros/</link>
+      <pubDate>Thu, 04 Sep 2025 12:00:00 +0800</pubDate>
+      
+      <guid>http://localhost:1313/posts/what-is-ros/</guid>
+      <description>一篇写给纯小白的ROS入门指南。通过一个贯穿全文的“乐高积木”比喻，生动解读ROS的核心概念，并附上在WSL Ubuntu 24.04上安装ROS2 Jazzy的完整步骤。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,37 @@
+baseURL = "https://Hambmark.github.io/"  # 把它改成你未来的网址
+languageCode = "zh-cn" # 语言设置为中文
+title = "我的 ROS 学习博客" # 你的博客主标题
+theme = "PaperMod" # 告诉 Hugo 使用我们下载的主题
+
+[params]
+author = "Hambmark" # 作者名
+description = "记录我的机器人学习之路" # 网站描述
+ShowReadingTime = true # 显示文章阅读时间
+ShowShareButtons = true # 显示分享按钮
+ShowPostNavLinks = true # 显示上一篇/下一篇文章导航
+
+[params.profileMode]
+enabled = true
+title = "你好，我是Hambmark" # 主页上你的名字
+subtitle = "一名正在探索 ROS 世界的机器人开发者。欢迎来到我的学习笔记空间！"
+imageUrl = "" # 在这里放一个你的头像图片链接
+imageWidth = 120
+imageHeight = 120
+
+[[params.socialIcons]]
+name = "github"
+url = "https://github.com/Hambmark" # 你的GitHub主页链接
+
+[menu]
+[[menu.main]]
+name = "文章"
+url = "/archives/"
+weight = 5
+[[menu.main]]
+name = "搜索"
+url = "/search/"
+weight = 10
+[[menu.main]]
+name = "标签"
+url = "/tags/"
+weight = 20
