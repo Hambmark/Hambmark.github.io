@@ -96,14 +96,14 @@ description: "一篇写给纯小白的ROS入门指南。通过一个贯穿全文
 
 首先，打开你的 WSL Ubuntu 终端，输入以下命令来配置系统区域，确保 ROS 不会出现编码问题。
 
-```bash
 # 更新并安装 locales 工具
+
 sudo apt update && sudo apt install locales
 
-# 生成并设置默认 locale 为美式英语UTF-8
+# 生成并设置默认 locale 为美式英语 UTF-8
+
 sudo locale-gen en_US en_US.UTF-8
 sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
-```
 
 - **作用:** 配置系统以支持标准的 UTF-8 字符编码，防止在编译或运行时出现乱码或解析错误。
 
@@ -111,45 +111,48 @@ sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
 
 接下来，让我们的系统知道去哪里下载 ROS 2。
 
-```bash
 # 1. 确保 Ubuntu 的 universe 仓库已启用
+
 sudo add-apt-repository universe
 
 # 2. 下载并添加 ROS 2 的 GPG 安全密钥，用于验证软件包的真实性
+
 sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
 
 # 3. 将 ROS 2 的下载地址添加到系统源列表
+
 echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(. /etc/os-release && echo $UBUNTU_CODENAME) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
 
 # 4. 更新软件包列表，使新添加的源生效
+
 sudo apt update
-```
 
 ### 步骤三：安装 ROS 2 及核心工具
 
 万事俱备，现在正式安装 ROS 2 Jazzy Jalisco！
 
-```bash
 # 安装 ROS 2 桌面完整版 (包含 RViz, Gazebo 等)
+
 sudo apt install ros-jazzy-desktop
-```
 
 安装完成后，配置环境并安装一些必不可少的开发工具。
 
-```bash
 # 自动加载 ROS 2 环境，这样每次打开新终端都无需手动 source
+
 echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc
 
 # 安装 rosdep 依赖管理工具
+
 sudo apt install python3-rosdep
 
 # 初始化 rosdep (首次使用需要)
+
 sudo rosdep init
 rosdep update
 
 # 安装 colcon 编译工具
+
 sudo apt install python3-colcon-common-extensions
-```
 
 - **`rosdep`**: 自动安装 ROS 功能包所依赖的系统库，是团队协作和复用他人代码的利器。
 - **`colcon`**: ROS 2 官方的构建系统，当你开始编写自己的代码时，会用它来编译项目。
@@ -160,19 +163,15 @@ sudo apt install python3-colcon-common-extensions
 
 1.  打开**第一个 WSL 终端**，输入以下命令启动模拟器：
 
-    ```bash
     ros2 run turtlesim turtlesim_node
-    ```
 
-    > **预期效果：** 一个蓝色背景、中间有一只小乌龟的图形窗口会自动弹出。
+    **预期效果：** 一个蓝色背景、中间有一只小乌龟的图形窗口会自动弹出。
 
 2.  **保持第一个终端和窗口不关闭，打开第二个 WSL 终端**，输入以下命令启动键盘控制器：
 
-    ```bash
     ros2 run turtlesim turtle_teleop_key
-    ```
 
-    > **预期效果：** 这个终端会提示 "Reading from keyboard..."。
+    **预期效果：** 这个终端会提示 "Reading from keyboard..."。
 
 3.  用鼠标**点击第二个终端窗口**，使其成为活动窗口。
 4.  按下键盘的**方向键（↑，↓，←，→）**。
