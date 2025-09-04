@@ -1,7 +1,11 @@
+[module]
+  [[module.imports]]
+    path = "github.com/adityatelange/hugo-PaperMod"
+    disable = false
+
 baseURL = "https://Hambmark.github.io/"  # 把它改成你未来的网址
 languageCode = "zh-cn" # 语言设置为中文
 title = "我的 ROS 学习博客" # 你的博客主标题
-theme = "PaperMod" # 告诉 Hugo 使用我们下载的主题
 
 [params]
 author = "Hambmark" # 作者名
