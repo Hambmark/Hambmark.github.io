@@ -9,7 +9,7 @@ description: "一篇写给纯小白的ROS入门指南。通过一个贯穿全文
 
 ## 前言
 
-你好，欢迎来到我的 ROS 学习笔记！作为一个刚刚踏入机器人世界的小白，我深知那些晦涩的术语有多么劝退。在查阅了大量资料后，我发现用“搭乐高积-木”来比喻 ROS，简直是打开新世界大门的钥匙。
+你好，欢迎来到我的 ROS 学习笔记！作为一个刚刚踏入机器人世界的小白，我深知那些晦涩的术语有多么劝退。在查阅了大量资料后，我发现用“搭乐高积木”来比喻 ROS，简直是打开新世界大门的钥匙。
 
 这篇文章将分为两部分：
 
@@ -96,14 +96,16 @@ description: "一篇写给纯小白的ROS入门指南。通过一个贯穿全文
 
 首先，打开你的 WSL Ubuntu 终端，输入以下命令来配置系统区域，确保 ROS 不会出现编码问题。
 
-````bash
+```bash
 # 更新并安装 locales 工具
 sudo apt update && sudo apt install locales
 
 # 生成并设置默认 locale 为美式英语UTF-8
 sudo locale-gen en_US en_US.UTF-8
-sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8```
-*   **作用:** 配置系统以支持标准的 UTF-8 字符编码，防止在编译或运行时出现乱码或解析错误。
+sudo update-locale LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8
+```
+
+- **作用:** 配置系统以支持标准的 UTF-8 字符编码，防止在编译或运行时出现乱码或解析错误。
 
 ### 步骤二：添加 ROS 2 官方软件源
 
@@ -121,15 +123,20 @@ echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-a
 
 # 4. 更新软件包列表，使新添加的源生效
 sudo apt update
-步骤三：安装 ROS 2 及核心工具
+```
+
+### 步骤三：安装 ROS 2 及核心工具
+
 万事俱备，现在正式安装 ROS 2 Jazzy Jalisco！
-code
-Bash
+
+```bash
 # 安装 ROS 2 桌面完整版 (包含 RViz, Gazebo 等)
 sudo apt install ros-jazzy-desktop
+```
+
 安装完成后，配置环境并安装一些必不可少的开发工具。
-code
-Bash
+
+```bash
 # 自动加载 ROS 2 环境，这样每次打开新终端都无需手动 source
 echo "source /opt/ros/jazzy/setup.bash" >> ~/.bashrc
 
@@ -142,21 +149,32 @@ rosdep update
 
 # 安装 colcon 编译工具
 sudo apt install python3-colcon-common-extensions
-rosdep: 自动安装 ROS 功能包所依赖的系统库，是团队协作和复用他人代码的利器。
-colcon: ROS 2 官方的构建系统，当你开始编写自己的代码时，会用它来编译项目。
-步骤四：运行经典示例——小乌龟！
+```
+
+- **`rosdep`**: 自动安装 ROS 功能包所依赖的系统库，是团队协作和复用他人代码的利器。
+- **`colcon`**: ROS 2 官方的构建系统，当你开始编写自己的代码时，会用它来编译项目。
+
+### 步骤四：运行经典示例——小乌龟！
+
 是时候检验成果了！我们将运行 ROS 2 最经典的入门示例。
-打开第一个 WSL 终端，输入以下命令启动模拟器：
-code
-Bash
-ros2 run turtlesim turtlesim_node
-预期效果： 一个蓝色背景、中间有一只小乌龟的图形窗口会自动弹出。
-保持第一个终端和窗口不关闭，打开第二个 WSL 终端，输入以下命令启动键盘控制器：
-code
-Bash
-ros2 run turtlesim turtle_teleop_key
-预期效果： 这个终端会提示 "Reading from keyboard..."。
-用鼠标点击第二个终端窗口，使其成为活动窗口。
-按下键盘的方向键（↑，↓，←，→）。
+
+1.  打开**第一个 WSL 终端**，输入以下命令启动模拟器：
+
+    ```bash
+    ros2 run turtlesim turtlesim_node
+    ```
+
+    > **预期效果：** 一个蓝色背景、中间有一只小乌龟的图形窗口会自动弹出。
+
+2.  **保持第一个终端和窗口不关闭，打开第二个 WSL 终端**，输入以下命令启动键盘控制器：
+
+    ```bash
+    ros2 run turtlesim turtle_teleop_key
+    ```
+
+    > **预期效果：** 这个终端会提示 "Reading from keyboard..."。
+
+3.  用鼠标**点击第二个终端窗口**，使其成为活动窗口。
+4.  按下键盘的**方向键（↑，↓，←，→）**。
+
 现在看看你的小乌龟窗口，它是不是已经听你指挥，开始愉快地画画了？如果是，那么恭喜你，已经成功迈出了进入 ROS 世界的第一步！
-````
